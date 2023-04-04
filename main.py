@@ -1,7 +1,7 @@
 
 import re
 from collections import UserDict
-import datetime
+from datetime import datetime
 
 
 class Field:
@@ -159,12 +159,9 @@ def add_contact(*args):
         raise IndexError
     if len(phone) > 15 or len(phone) < 9:
         return f'\n{phone} is not valid phone number\n'
-    name_obj = Name(name)
-    birthday_obj = Birthday(birthday)
-    record_birth = Record(birthday_obj)
-    record_name = Record(name_obj)
-    record_name.add_phone(Phone(phone))
-    contacts.add_record(record_name)
+    
+    record = Record(name, phones=[phone], birthday=birthday)
+    contacts.add_record(record)
    
     return f'\nContact {name.capitalize()} was successfully added\n'
 
