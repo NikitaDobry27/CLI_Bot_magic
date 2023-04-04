@@ -54,7 +54,7 @@ class Birthday(Field):
 
     def validate_birthday(self, value):
         try:
-            value = datetime.strptime(value, '%d.%m.%Y').date()
+            value = datetime.strptime(str(value), '%d.%m.%Y').date()
             return value
         except ValueError:
             raise ValueError("Invalid date format. Please use 'dd.mm.yyyy'")
