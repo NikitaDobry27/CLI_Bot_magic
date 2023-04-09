@@ -46,6 +46,10 @@ A function that changes a contact's phone number.
 
 A function that retrieves a contact's phone number.
 
+### **search(*args)**
+
+A function that retrieves contacts which match with user's query
+
 ### **show_all(*args)**
 
 A function that searches by start of the name or phone number 
