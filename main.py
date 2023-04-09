@@ -93,6 +93,7 @@ class Record:
     def add_phone(self, phone):
         if not self.has_phone(phone):
             self.phones.append(phone)
+            contacts.save_to_file("contacts.json")
         else:
             print("Phone number is already added for this contact.")
         
@@ -334,8 +335,28 @@ def days_to_birthday(*args):
             result += f'\nNo birthday information found for {record.name.value.capitalize()}\n'
     return result
 
-def add_birthday(*args):
-    pass
+@input_validation
+def search(*args):
+    search_query = args[0][0]
+    result = ''
+
+    for record in contacts.data.values():
+        name = str(record.name.value)
+        phones = [str(phone) for phone in record.phones]
+        phone_string = ', '.join(phones)
+
+        if name.startswith(search_query) or any(phone.startswith(search_query) for phone in phones):
+            birthday = record.birthday.value if record.birthday else None
+            contact_info = f'\n{name.capitalize()}: {phone_string}'
+            if birthday:
+                contact_info += f'. Birthday: {birthday}\n'
+            else:
+                contact_info += '\n'
+            result += contact_info
+
+    if not result:
+        return f'\nNo contact found with the query: {search_query}\n'
+    return result
 
 def show_all(*args):
     if not contacts:
@@ -390,7 +411,8 @@ COMMANDS = {
     show_all: ['show'],
     remove_contact: ['remove', 'delete'],
     show_page: ['page'],
-    days_to_birthday: ['birthday']
+    days_to_birthday: ['birthday'],
+    search:['search']
 }
 
 

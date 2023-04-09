@@ -46,6 +46,10 @@ A function that changes a contact's phone number.
 
 A function that retrieves a contact's phone number.
 
+### **show_all(*args)**
+
+A function that searches by start of the name or phone number 
+
 ### **remove_contact(*args)**
 
 A function that removes a contact from the list.
@@ -65,6 +69,7 @@ The following commands are available:
 - show: displays all contacts.
 - remove, delete: removes a contact from the list.
 - page: shows contacts by pages (2 contacts/page default value)
+- search: should be used with search query (beginning of the name or phone number)
 
 ## **Usage**
 
