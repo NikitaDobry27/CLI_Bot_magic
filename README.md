@@ -38,6 +38,10 @@ A function that greets the user.
 
 A function that adds a contact to the list.
 
+### **days_to_birthday(*args)**
+
+A function which calculates amount of days left before birthday.
+
 ### **change(*args)**
 
 A function that changes a contact's phone number.
@@ -48,7 +52,7 @@ A function that retrieves a contact's phone number.
 
 ### **search(*args)**
 
-A function that retrieves contacts which match with user's query
+A function that retrieves contacts which match with user's query.
 
 ### **remove_contact(*args)**
 
@@ -70,6 +74,7 @@ The following commands are available:
 - remove, delete: removes a contact from the list.
 - page: shows contacts by pages (2 contacts/page default value)
 - search: should be used with search query (beginning of the name or phone number)
+- birthday: shows number of days before contact's birthday. Should be used with name. 
 
 ## **Usage**
 
